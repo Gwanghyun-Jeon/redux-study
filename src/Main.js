@@ -35,9 +35,9 @@ const Title = styled.input`
   word-wrap: break-word; /* IE 5.5-7 */
   white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
   white-space: pre-wrap; /* current browsers */
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-all; */
 `;
 const Content = styled.textarea`
   background-color: white;
@@ -48,16 +48,17 @@ const Content = styled.textarea`
   word-wrap: break-word; /* IE 5.5-7 */
   white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
   white-space: pre-wrap; /* current browsers */
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   word-wrap: break-word;
-  word-break: break-all;
+  word-break: break-all; */
 `;
 
-export function Home() {
+export function Home({ getImage }) {
   const dispatch = useDispatch();
   const contentList = useSelector((state) => state);
   const [inputTitle, setInputTitle] = useState("");
   const [inputContent, setInputContent] = useState("");
+
   return (
     <Main>
       <Header>
@@ -79,6 +80,7 @@ export function Home() {
           <br />
           <Link to="/pagetwo">2번 페이지</Link>
         </ul>
+        <button onClick={getImage}>짤방 가져오기</button>
       </Header>
       <Body>{contentList && contentList.map((ele, idx) => <Contentbox key={idx} data={ele} />)}</Body>
     </Main>
