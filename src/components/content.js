@@ -7,6 +7,9 @@ const ContentTitle = styled.div`
   background-color: lightblue;
   padding: 5px;
   margin-top: 3px;
+  word-wrap: break-word; /* IE 5.5-7 */
+  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  white-space: pre-wrap; /* current browsers */
 `;
 const ContentBody = styled.div`
   /* width: 200px; */
@@ -14,6 +17,9 @@ const ContentBody = styled.div`
   background-color: lightblue;
   padding: 5px;
   margin-bottom: 3px;
+  word-wrap: break-word; /* IE 5.5-7 */
+  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  white-space: pre-wrap; /* current browsers */
 `;
 
 export function Contentbox({ data }) {
