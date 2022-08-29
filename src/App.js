@@ -1,5 +1,3 @@
-import { createStore } from "redux";
-import { reducer } from "./redux/reducer.js";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./Main.js";
 import { PageOne } from "./page/PageOne.js";
@@ -31,5 +29,6 @@ function App() {
     </Routes>
   );
 }
-export const store = createStore(reducer);
+// export const store = createStore(reducer);
+
 export default App;
