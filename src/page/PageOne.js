@@ -15,12 +15,12 @@ export function PageOne() {
       </ul>
       첫번째 페이지 입니다.
       {contentList
-        .filter((ele) => ele.title === "aaa")
+        .filter((ele) => ele.payload.title === "aaa")
         .map((ele) => (
           <div>
-            <input defaultValue={ele.title} />
+            <input defaultValue={ele.payload.title} />
             <br />
-            <textarea defaultValue={ele.content} />
+            <textarea defaultValue={ele.payload.content} />
           </div>
         ))}
     </div>

@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { makeAction } from "./redux/action.js";
-import { createStore } from "redux";
-import { reducer } from "./redux/reducer.js";
 import { Contentbox } from "./components/content.js";
 import { Link } from "react-router-dom";
+import { memoActions } from "./redux/reducer.js";
 
 const Main = styled.div`
   margin: 0 auto;
@@ -58,7 +56,7 @@ export function Home({ getImage }) {
   const contentList = useSelector((state) => state);
   const [inputTitle, setInputTitle] = useState("");
   const [inputContent, setInputContent] = useState("");
-
+  // console.log(contentList);
   return (
     <Main>
       <Header>
@@ -68,7 +66,8 @@ export function Home({ getImage }) {
         </PostArea>
         <button
           onClick={() => {
-            dispatch(makeAction("ADD_ITEM", { title: inputTitle, content: inputContent }));
+            dispatch(memoActions.add({ title: inputTitle, content: inputContent }));
+            // dispatch(makeAction("ADD_ITEM", { title: inputTitle, content: inputContent }));
           }}
         >
           submit
@@ -82,9 +81,9 @@ export function Home({ getImage }) {
         </ul>
         <button onClick={getImage}>짤방 가져오기</button>
       </Header>
-      <Body>{contentList && contentList.map((ele, idx) => <Contentbox key={idx} data={ele} />)}</Body>
+      <Body>{contentList && contentList.map((ele, idx) => <Contentbox key={idx} data={ele.payload} />)}</Body>
     </Main>
   );
 }
-export const store = createStore(reducer);
+// export const store = createStore(reducer);
 export default Main;
